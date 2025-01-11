@@ -1,5 +1,64 @@
-img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
+/* Colors */
+
+:root {
+    --deep-pink: #e6006d;
+    --dark-purple: #770753;
+}
+
+* {
+    background-color: #0d0c22;
+    color: white;
+}
+
+.profile {
+    display: flex; /* Aligns the image and name horizontally */
+    align-items: center; 
+    gap: 10px; 
+}
+
+.profile img {
+    height: 50px; 
+    border-radius: 50%; 
+}
+
+.profile span {
+    font-size: 18px; 
+    font-weight: bold;
+    color: white;
+}
+
+nav {
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    padding: 10px 20px;
+    color: white;
+}
+
+
+nav ul {
+    display: flex; /* Makes the list items appear in a row */
+    list-style: none; /* Removes bullet points */
+    margin: 0;
+    padding: 0;
+    gap: 20px; /* Adds space between links */
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav button {
+    /* background-color: #555; */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+nav button:hover {
+    background-color: var(--deep-pink);
 }
