@@ -1,105 +1,122 @@
-/* Colors */
-
+/* Root Colors and Fonts */
 :root {
     --deep-pink: #e6006d;
     --dark-purple: #770753;
+    --background-color: #0d0c22;
+    --text-color: white;
+    --accent-color: aqua;
+    --font-primary: 'Georgia', serif;
+    --font-secondary: 'Courier New', monospace;
 }
 
-* {
-    background-color: #0d0c22;
-    color: white;
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Navigation Bar */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background-color: #222;
 }
 
 .profile {
-    display: flex; /* Aligns the image and name horizontally */
-    align-items: center; 
-    gap: 10px; 
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .profile img {
-    height: 50px; 
-    border-radius: 50%; 
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
 }
 
-.profile span {
-    font-size: 18px; 
+.profile-name {
+    font-size: 18px;
     font-weight: bold;
-    color: white;
+    color: var(--text-color);
 }
-
-nav {
-    display: flex; 
-    align-items: center; 
-    justify-content: space-between; 
-    padding: 10px 20px;
-    color: white;
-}
-
 
 nav ul {
-    display: flex; /* Makes the list items appear in a row */
-    list-style: none; /* Removes bullet points */
+    display: flex;
+    list-style: none;
     margin: 0;
     padding: 0;
-    gap: 20px; /* Adds space between links */
+    gap: 20px;
 }
 
 nav ul li a {
-    color: white;
     text-decoration: none;
+    color: var(--text-color);
     font-weight: bold;
 }
 
+nav ul li a:hover {
+    color: var(--deep-pink);
+}
+
 nav button {
-    /* background-color: #555; */
-    color: white;
-    border: none;
+    background-color: transparent;
+    color: var(--text-color);
+    border: 2px solid var(--deep-pink);
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 nav button:hover {
     background-color: var(--deep-pink);
+    color: var(--background-color);
+}
+
+/* Header Section */
+header {
+    padding: 50px 90px;
+    text-align: left;
 }
 
 h5 {
-    color: aqua;
-    margin-top: 100px;
-    margin-left: 90px; /* Moves the header to the right */
-    font-style: italic; /* Optional: Adds emphasis */
+    color: var(--accent-color);
+    font-style: italic;
+    margin: 0;
 }
 
 h1 {
-    font-family: 'Georgia', serif; /* Changes the font of h1 to Georgia */
-    margin-left: 90px; /* Aligns with the h5 */
-    font-size: 40px; /* Adjusts the size for emphasis */
-    color: white; /* Default text color for contrast */
+    font-family: var(--font-primary);
+    font-size: 40px;
+    color: var(--text-color);
+    margin: 10px 0 0 0; /* Top margin adjusts spacing above h1 */
 }
 
 h4 {
-    font-family: 'Courier New', monospace;
-    color: #555;
-    font-size: 40px;
-    margin-left: 90px;
+    font-family: var(--font-secondary);
+    font-size: 30px;
+    color: var(--text-color);
     display: inline-block;
+    margin: 5px 0 0 0; /* Removes bottom margin */
     white-space: nowrap;
 }
 
-/* Style the span elements */
+/* Animated Gradient Typing Effect */
 h4 span {
     display: inline-block;
     position: relative;
-    opacity: 0; /* Start with letters hidden */
-    animation: typing 3s steps(1, end) infinite, gradient 3s ease-in-out infinite; /* Animations */
-    background: linear-gradient(45deg, #e6006d, #770753, white);
+    opacity: 0;
+    animation: typing 3s steps(1, end) infinite, gradient 3s ease-in-out infinite;
+    background: linear-gradient(45deg, var(--deep-pink), var(--dark-purple), var(--text-color));
     -webkit-background-clip: text;
     color: transparent;
     background-size: 200%;
     background-position: 0%;
 }
 
-/* Animation for typing effect */
 @keyframes typing {
     0% {
         opacity: 0;
@@ -112,7 +129,6 @@ h4 span {
     }
 }
 
-/* Animation for gradient transition */
 @keyframes gradient {
     0% {
         background-position: 0%;
@@ -125,7 +141,7 @@ h4 span {
     }
 }
 
-/* Delay each span's animation */
+/* Delay for Typing Effect */
 h4 span:nth-child(1) { animation-delay: 0.1s; }
 h4 span:nth-child(2) { animation-delay: 0.2s; }
 h4 span:nth-child(3) { animation-delay: 0.3s; }
@@ -138,13 +154,17 @@ h4 span:nth-child(9) { animation-delay: 0.9s; }
 h4 span:nth-child(10) { animation-delay: 1s; }
 h4 span:nth-child(11) { animation-delay: 1.1s; }
 h4 span:nth-child(12) { animation-delay: 1.2s; }
-h4 span:nth-child(13) { animation-delay: 1.3s; }
-h4 span:nth-child(14) { animation-delay: 1.4s; }
-h4 span:nth-child(15) { animation-delay: 1.5s; }
-h4 span:nth-child(16) { animation-delay: 1.6s; }
 
-p {
-    margin-left: 90px; /* Aligns the paragraph with the headers */
-    max-width: 800px; /* Limits the width for readability */
-    line-height: 1.6; /* Improves readability */
+/* Main Content Section */
+main {
+    padding: 20px 90px;
+}
+
+.about-me {
+    max-width: 800px;
+    line-height: 1.6;
+}
+
+.about-me p {
+    margin: 10px 0;
 }
