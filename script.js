@@ -32,3 +32,30 @@ const shadowHeader = () => {
     this.scrollY >= 50 ? header.classList.add('shadow-header') : header.classList.remove('shadow-header')
 }
 window.addEventListener('scroll', shadowHeader)
+
+// EMAIL SECTION
+const contactForm = document.getElementById('contact-form'),
+contactMessage = document.getElementById('contact-message')
+
+const sendEmail = (e) => {
+    e.preventDefault()
+    // serviceID - templateID - #form - publicKey
+    emailjs.sendForm('service_jdnyr7g', 'template_066usss', '#contact-form', 'By221_O5_Xr5D-SIQ')
+    .then(() => {
+        //Show wthat the message has been sent
+        contactMessage.textContent = 'Message sent successfully!'
+
+        //Remove success message after five seconds
+        setTimeout(() => {
+            contactMessage.textContent = ''
+        }, 5000)
+
+        //Clear the form input fields
+        contactForm.reset()
+    }, () => {
+        //Show specific error message in contact form
+        contactForm.textContent = 'Message not sent!:('
+    })
+}
+
+contactForm.addEventListener('submit', sendEmail)
